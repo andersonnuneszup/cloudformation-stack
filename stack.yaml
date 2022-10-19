@@ -4,8 +4,7 @@ display-name: cloudformation-stack
 picture: stack.png
 category: backend # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#category
 compatibility: # Put a list of technologies compatible with the stack
-  - java
-  - spring
+  - python
 technologies: # Ref: https://docs.stackspot.com/latest/docs/creators-guide/yaml/#technologies 
   - docker 
 about: docs/about.md

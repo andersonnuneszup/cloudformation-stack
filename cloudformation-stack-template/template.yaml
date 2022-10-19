@@ -1,0 +1,9 @@
+name: cloudformation-stack-template
+description: Template destined to show a sample cloudformation configuration
+types:
+  - app-template
+inputs:
+  - label: Project name
+    type: text
+    name: project_name
+    default: project-name

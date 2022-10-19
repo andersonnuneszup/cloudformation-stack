@@ -1,0 +1,63 @@
+Description: 'CloudFormation destined to create basic amazon structures.'
+Resources:
+  # Basic ECR creation
+  sampleRegistry:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: sample_repository
+      Tags:
+        - Key: 'name'
+          Value: 'Sample'
+  # Basic S3 Bucket creation
+  sampleBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: 'sample-bucket'
+      Tags:
+        - Key: 'name'
+          Value: 'Sample'
+  # Basic Dynamo Table creation
+  sampleDynamoTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - 
+          AttributeName: "eTag"
+          AttributeType: "S"
+      KeySchema:
+        - 
+          AttributeName: "eTag"
+          KeyType: "HASH"
+      ProvisionedThroughput: 
+        ReadCapacityUnits: "5"
+        WriteCapacityUnits: "5"
+      StreamSpecification:
+          StreamViewType: NEW_AND_OLD_IMAGES
+      TableName: 'sample_table'
+      Tags:
+        - Key: 'name'
+          Value: 'Sample'
+  # Basic creation
+  sampleLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Architectures:
+        - x86_64
+      FileSystemConfigs:
+        - Arn: <file_system arn>
+          LocalMountPath: /mnt/artifacts
+      FunctionName: sample_lambda_function
+      MemorySize: 1240
+      PackageType: Image
+      ReservedConcurrentExecutions: 50
+      Role: <role>
+      Code:
+        ImageUri: <uri>
+      VpcConfig:
+        SecurityGroupIds:
+          - <sg-************************>
+        SubnetIds:
+          - <subnet-************************>
+      Tags:
+        - Key: "name"
+          Value: "Sample"

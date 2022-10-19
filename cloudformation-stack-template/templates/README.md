@@ -17,3 +17,4 @@
 * Choose Next.
 * Review the information for the stack. When you're satisfied with the settings, choose Create.
 * Your stack might take several minutes to create – but you probably don't want to just sit around waiting. If you're like us, you'll want to know how the stack creation is going.
+- For more details you can check the documentation from the link below: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-reference.html
